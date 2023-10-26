@@ -1,11 +1,11 @@
 server <- function(){
   require(shiny)
   require(dplyr)
-    E <- new.env()
+
   db <- adminKraken::con_dplyr()
   
 function(input, output, session) {
-
+    E <- new.env()
   lot_list <- reactive({
     rel2::get_order_lots(input$type, db)
   })
